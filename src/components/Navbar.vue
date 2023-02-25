@@ -50,6 +50,7 @@ a:hover {
   color: white;
   -webkit-text-stroke: 1px black;
   font-family: 'Fredoka One', cursive;
+  letter-spacing: 2px;
 }
 
 </style>

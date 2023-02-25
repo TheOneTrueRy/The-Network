@@ -16,7 +16,7 @@
     </div>
     <div class="col-10">
       <div class="row">
-        <div class="col-12 g-0 border-bottom border-2 border-dark navbar-stuff">
+        <div class="col-12 g-0 border-bottom border-2 border-dark header-stuff">
           <Navbar/>
         </div>
         <div class="col-10 g-0 border-2 border-end border-dark main-body">
@@ -54,10 +54,10 @@ export default {
 }
 
 .header-stuff{
-  height: 10vh;
+  height: 7vh;
 }
 
 .main-body{
-  height: 90.7vh;
+  height: 93vh;
 }
 </style>

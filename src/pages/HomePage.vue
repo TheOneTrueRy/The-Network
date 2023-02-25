@@ -1,19 +1,19 @@
 <template>
 <div class="container-fluid h-100">
   <div class="row h-100">
-    <div class="col-12">
+    <div class="col-6 offset-3 post-area mt-2 border rounded border-dark border-2 elevation-2">
 
     </div>
     <div class="col-12 my-overflow">
       <div class="row">
-        <div v-for="post in posts" class="col-10 offset-1 p-1 my-3 rounded border border-dark border-2">
+        <div v-for="post in posts" class="col-10 offset-1 p-1 my-3 rounded border border-dark border-2 elevation-1">
           <div class="row">
-            <div class="col-1 ps-1">
+            <div class="col-1 pt-1 text-center">
               <img :src="post.creator.picture" alt="" class="rounded-circle ms-2" height="50" width="50">
             </div>
-            <div class="col-10 pe-1 d-flex flex-column align-items-start">
+            <div class="col-10 pe-1 pt-1 d-flex flex-column align-items-start">
               <span><b>{{post.creator.name}}</b></span>
-              <span>2h</span>
+              <span>{{ post.createdAt }}</span>
             </div>
             <div class="col-12 px-5 my-2">
               <span>{{ post.body }}</span>
@@ -22,8 +22,8 @@
               <img :src="post.imgUrl" alt="" class="bodyImg">
             </div>
             <div class="col-12 text-end">
-              <i class="mdi mdi-arrow-up"></i>
-              <span>69</span>
+              <i class="mdi mdi-arrow-up fs-4 me-1 like"></i>
+              <span class="fs-4 me-4">{{ post.likes.length }}</span>
             </div>
           </div>
         </div>
@@ -68,12 +68,41 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+@keyframes rainbow{
+  0% {color: red}
+  15% {color: orange;}
+  30% {color: yellow;}
+  38% {color: rgb(187, 255, 0);}
+  45% {color: lime}
+  60% {color: blue}
+  75% {color: darkviolet}
+  90% {color: deeppink;}
+  100% {color: red;}
+}
+
 .btn-col{
   height: 6%;
 }
 
+.like{
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.like:hover{
+  animation-name: rainbow;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  transform: scale(1.1);
+}
+
+.post-area{
+  height: 20%;
+}
+
 .my-overflow{
-  height: 90vh;
+  height: 80%;
   overflow-y: scroll;
 }
 

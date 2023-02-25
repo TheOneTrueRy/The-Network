@@ -8,12 +8,12 @@ body{
   overscroll-behavior: none;
 }
 
-// #app {
-//   display: flex;
-//   flex-direction: column;
-//   min-height: 100vh;
-//   background-color: var(--body-bg);
-// }
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: white;
+}
 
 main {
   flex-grow: 1;
