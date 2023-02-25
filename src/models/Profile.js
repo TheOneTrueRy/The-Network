@@ -9,5 +9,6 @@ export class Profile{
     this.github = data.github
     this.linkedin = data.linkedin
     this.coverImg = data.coverImg
+    this.resume = data.resume
   }
 }

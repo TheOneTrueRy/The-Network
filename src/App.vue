@@ -1,13 +1,22 @@
 <template>
 <div class="container-fluid bg-dark bg-gradient">
   <div class="row vh100">
-    <div class="col-2 g-0 d-flex align-items-center justify-content-center border-end border-dark border-3">
+    <div class="col-2 g-0 d-flex align-items-center justify-content-center border-end border-dark border-3 my-grey bg-gradient">
       <div class="row">
-        <div class="col-12 d-flex align-items-center justify-content-center">
+        <div class="col-12 d-flex align-items-center justify-content-center ">
           <Login/>
         </div>
-        <div class="col-12 third">
-
+        <div class="col-12 third pt-4">
+          <div v-if="appState.account.id">
+            <div v-if="appState.account.github" class="text-center d-flex flex-column">
+              <i class="mdi mdi-github me-2 fs-2"></i>
+              <span class="on-hover">{{ appState.account.github }}</span>
+            </div>
+            <div v-if="appState.account.linkedin" class="text-center d-flex flex-column mt-3">
+              <i class="mdi mdi-linkedin me-2 fs-2"></i>
+              <span class="on-hover">{{ appState.account.linkedin }}</span>
+            </div>
+          </div>
         </div>
         <div class="col-12 third">
 

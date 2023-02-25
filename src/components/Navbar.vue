@@ -3,7 +3,7 @@
         <router-link :to="{ name: 'Home' }">
         <div class="" title="Return to Homepage">
           <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/3600/3600934.png" height="64"/>
-          <span class="fs-3 ms-2 brand-text on-hover">The Network</span>
+          <span class="fs-3 ms-1 brand-text on-hover">ETWORK</span>
         </div>
       </router-link>
       </div>
