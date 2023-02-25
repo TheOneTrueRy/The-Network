@@ -1,7 +1,7 @@
 <template>
-<div class="container-fluid">
+<div class="container-fluid bg-dark bg-gradient">
   <div class="row vh100">
-    <div class="col-2 g-0 d-flex align-items-center justify-content-center border-end border-dark border-2">
+    <div class="col-2 g-0 d-flex align-items-center justify-content-center border-end border-dark border-3">
       <div class="row">
         <div class="col-12 d-flex align-items-center justify-content-center">
           <Login/>
@@ -16,14 +16,14 @@
     </div>
     <div class="col-10">
       <div class="row">
-        <div class="col-12 g-0 border-bottom border-2 border-dark header-stuff">
+        <div class="col-12 g-0 border-3 border-bottom border-dark header-stuff">
           <Navbar/>
         </div>
-        <div class="col-10 g-0 border-2 border-end border-dark main-body">
+        <div class="col-10 g-0 border-3 border-end border-dark main-body">
           <router-view/>
         </div>
         <div class="col-2 g-0">
-          
+
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@ export default {
 }
 
 .header-stuff{
-  height: 7vh;
+  height: 9vh;
 }
 
 .main-body{

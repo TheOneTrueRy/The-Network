@@ -1,9 +1,9 @@
 <template>
-  <div class="d-flex align-items-center ps-2 navbar-custom">
+  <div class="d-flex align-items-center ps-2 my-grey bg-gradient h-100">
         <router-link :to="{ name: 'Home' }">
-        <div class="text-center" title="Return to Homepage">
-          <img alt="logo" src="../assets/img/letter-n.png" height="64"/>
-          <i class="on-hover"><span class="fs-3 ms-1 brand-text">The Network</span></i>
+        <div class="" title="Return to Homepage">
+          <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/3600/3600934.png" height="64"/>
+          <span class="fs-3 ms-2 brand-text on-hover">The Network</span>
         </div>
       </router-link>
       </div>

@@ -1,7 +1,7 @@
 <template>
 <div class="container-fluid h-100">
   <div id="WHAT" class="row">
-    <div class="col-6 offset-3 post-area mt-2 border rounded border-dark border-2 elevation-2">
+    <div class="col-6 offset-3 post-area mt-2 border rounded border-dark border-2 elevation-2 my-grey bg-gradient">
       <div class="row" v-if="account.id">
         <div class="col-4 pt-3 ps-4 d-flex flex-column">
           <img :src="account.picture" alt="" class="rounded-circle elevation-2" height="100" width="100">
@@ -22,7 +22,7 @@
     </div>
     <div class="col-12 my-overflow">
       <div class="row">
-        <div v-for="post in posts" class="col-10 offset-1 my-2 rounded border border-dark border-2 elevation-1">
+        <div v-for="post in posts" class="col-10 offset-1 my-2 rounded border border-dark border-2 elevation-1 my-grey bg-gradient">
           <div class="row">
             <div class="col-1 pt-1 text-center">
               <img :src="post.creator.picture" alt="" class="rounded-circle ms-2" height="50" width="50">
@@ -149,7 +149,6 @@ export default {
 
 #postbutton{
   height: 34px;
-  border: 2px solid black;
   padding: 4px 6px;
   margin-bottom: 3px;
 }
