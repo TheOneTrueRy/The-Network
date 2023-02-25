@@ -2,7 +2,18 @@
 <div class="container-fluid h-100">
   <div class="row h-100">
     <div class="col-6 offset-3 post-area mt-2 border rounded border-dark border-2 elevation-2">
-
+      <div class="row">
+        <div class="col-4 pt-3 ps-4 d-flex flex-column">
+          <img :src="account.picture" alt="" class="rounded-circle elevation-2" height="100" width="100">
+        </div>
+        <div class="col-8">
+          <form>
+            <textarea v-model="editable.body" required name="postbody" id="postbody" rows="4" class="mt-3 border-2 border border-dark" placeholder="Create a post!"></textarea>
+            <input v-model="editable.imgUrl" type="url" class="rounded py-1" placeholder="Got an IMG? Put er there!">
+            <button type="submit" id="postbutton" class="btn btn-outline-dark ms-5 py-1 like">Post!</button>
+          </form>
+        </div>
+      </div>
     </div>
     <div class="col-12 my-overflow">
       <div class="row">
@@ -40,14 +51,14 @@
 </template>
 
 <script>
-import { onMounted, computed } from "vue";
+import { onMounted, computed, ref } from "vue";
 import { AppState } from "../AppState.js";
 import { postsService } from '../services/PostsService.js';
 import Pop from "../utils/Pop.js";
 
 export default {
   setup() {
-
+    let editable = ref({})
     async function getAllPosts(){
       try {
         await postsService.getAllPosts()
@@ -61,7 +72,9 @@ export default {
     })
 
     return {
-      posts: computed(() => AppState.posts)
+      editable,
+      posts: computed(() => AppState.posts),
+      account: computed(() => AppState.account)
     }
   }
 }
@@ -113,5 +126,16 @@ export default {
 .bodyImg{
   width: 60%;
   height: 400px;
+}
+
+#postbody{
+  width: 90%;
+}
+
+#postbutton{
+  height: 34px;
+  border: 2px solid black;
+  padding: 4px 6px;
+  margin-bottom: 3px;
 }
 </style>
