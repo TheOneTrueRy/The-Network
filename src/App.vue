@@ -23,7 +23,7 @@
           <router-view/>
         </div>
         <div class="col-2 g-0">
-
+          
         </div>
       </div>
     </div>

@@ -1,23 +1,28 @@
 <template>
 <div class="container-fluid h-100">
-  <div class="row h-100">
+  <div id="WHAT" class="row">
     <div class="col-6 offset-3 post-area mt-2 border rounded border-dark border-2 elevation-2">
-      <div class="row">
+      <div class="row" v-if="account.id">
         <div class="col-4 pt-3 ps-4 d-flex flex-column">
           <img :src="account.picture" alt="" class="rounded-circle elevation-2" height="100" width="100">
         </div>
         <div class="col-8">
           <form>
-            <textarea v-model="editable.body" required name="postbody" id="postbody" rows="4" class="mt-3 border-2 border border-dark" placeholder="Create a post!"></textarea>
+            <textarea v-model="editable.body" required name="postbody" id="postbody" rows="4" class="mt-3 border-2 border border-dark" placeholder="Create a post!" maxlength="1200"></textarea>
             <input v-model="editable.imgUrl" type="url" class="rounded py-1" placeholder="Got an IMG? Put er there!">
             <button type="submit" id="postbutton" class="btn btn-outline-dark ms-5 py-1 like">Post!</button>
           </form>
         </div>
       </div>
+      <div class="row h-100" v-else>
+        <div class="col-12 d-flex justify-content-center align-items-center">
+          <i><h1>Log-in to post!</h1></i>
+        </div>
+      </div>
     </div>
     <div class="col-12 my-overflow">
       <div class="row">
-        <div v-for="post in posts" class="col-10 offset-1 p-1 my-3 rounded border border-dark border-2 elevation-1">
+        <div v-for="post in posts" class="col-10 offset-1 my-2 rounded border border-dark border-2 elevation-1">
           <div class="row">
             <div class="col-1 pt-1 text-center">
               <img :src="post.creator.picture" alt="" class="rounded-circle ms-2" height="50" width="50">
@@ -29,7 +34,7 @@
             <div class="col-12 px-5 my-2">
               <span>{{ post.body }}</span>
             </div>
-            <div v-if="post.imgUrl" class="col-12 text-center">
+            <div v-if="post.imgUrl" class="col-12 text-center g-0">
               <img :src="post.imgUrl" alt="" class="bodyImg">
             </div>
             <div class="col-12 text-end">
@@ -54,6 +59,7 @@
 import { onMounted, computed, ref } from "vue";
 import { AppState } from "../AppState.js";
 import { postsService } from '../services/PostsService.js';
+import { adsService } from '../services/AdsService.js';
 import Pop from "../utils/Pop.js";
 
 export default {
@@ -67,8 +73,17 @@ export default {
       }
     }
 
+    async function getAds(){
+      try {
+        await adsService.getAds()
+      } catch (error) {
+        Pop.error(error, 'Getting Ads')
+      }
+    }
+
     onMounted(() => {
       getAllPosts()
+      getAds()
     })
 
     return {
@@ -124,8 +139,8 @@ export default {
 }
 
 .bodyImg{
-  width: 60%;
-  height: 400px;
+  width: 100%;
+  height: 500px;
 }
 
 #postbody{
@@ -137,5 +152,9 @@ export default {
   border: 2px solid black;
   padding: 4px 6px;
   margin-bottom: 3px;
+}
+
+#WHAT{
+  height: 99%;
 }
 </style>
