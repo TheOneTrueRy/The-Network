@@ -8,14 +8,18 @@
         </div>
         <div class="col-12 third pt-4">
           <div v-if="appState.account.id">
-            <div v-if="appState.account.github" class="text-center d-flex flex-column">
-              <i class="mdi mdi-github me-2 fs-2"></i>
-              <span class="on-hover">{{ appState.account.github }}</span>
-            </div>
-            <div v-if="appState.account.linkedin" class="text-center d-flex flex-column mt-3">
-              <i class="mdi mdi-linkedin me-2 fs-2"></i>
-              <span class="on-hover">{{ appState.account.linkedin }}</span>
-            </div>
+            <a v-if="appState.account.github" :href="appState.account.github" target="_blank">
+            <div class="text-center d-flex flex-column">
+                <i class="mdi mdi-github me-2 fs-2"></i>
+                <span class="on-hover fs-3">GitHub</span>
+              </div>
+            </a>
+            <a v-if="appState.account.linkedin" :href="appState.account.linkedin" target="_blank">
+            <div class="text-center d-flex flex-column mt-3">
+                <i class="mdi mdi-linkedin me-2 fs-2"></i>
+                <span class="on-hover fs-3">Linkedin</span>
+              </div>
+            </a>
           </div>
         </div>
         <div class="col-12 third">
@@ -68,5 +72,13 @@ export default {
 
 .main-body{
   height: 91vh;
+}
+
+a{
+  color: white;
+}
+
+a:hover{
+  color: white;
 }
 </style>

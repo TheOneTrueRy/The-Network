@@ -7,7 +7,7 @@
           <img :src="account.picture" alt="" class="rounded-circle elevation-2" height="100" width="100">
         </div>
         <div class="col-8">
-          <form>
+          <form @submit.prevent="createPost()">
             <textarea v-model="editable.body" required name="postbody" id="postbody" rows="4" class="mt-3 border-2 border border-dark" placeholder="Create a post!" maxlength="1200"></textarea>
             <input v-model="editable.imgUrl" type="url" class="rounded py-1" placeholder="Got an IMG? Put er there!">
             <button type="submit" id="postbutton" class="btn btn-outline-dark ms-5 py-1 like">Post!</button>
@@ -35,7 +35,7 @@
               <span>{{ post.body }}</span>
             </div>
             <div v-if="post.imgUrl" class="col-12 text-center g-0">
-              <img :src="post.imgUrl" alt="" class="bodyImg">
+              <img :src="post.imgUrl" alt="" class="bodyImg" onerror="this.src='src/assets/img/broken-image.png';">
             </div>
             <div class="col-12 text-end">
               <i class="mdi mdi-arrow-up fs-4 me-1 like"></i>
@@ -64,7 +64,7 @@ import Pop from "../utils/Pop.js";
 
 export default {
   setup() {
-    let editable = ref({})
+    const editable = ref({})
     async function getAllPosts(){
       try {
         await postsService.getAllPosts()
@@ -89,7 +89,14 @@ export default {
     return {
       editable,
       posts: computed(() => AppState.posts),
-      account: computed(() => AppState.account)
+      account: computed(() => AppState.account),
+      async createPost(){
+        try {
+          await postsService.createPost(editable.value)
+        } catch (error) {
+          Pop.error(error, 'Creating Post')
+        }
+      },
     }
   }
 }
