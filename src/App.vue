@@ -58,6 +58,6 @@ export default {
 }
 
 .main-body{
-  height: 93vh;
+  height: 91vh;
 }
 </style>
