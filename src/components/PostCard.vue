@@ -1,0 +1,45 @@
+<template>
+          <div class="row">
+            <div class="col-1 pt-1 text-center">
+              <router-link :to="{name: 'Profile', params: {profileId: post.creatorId}}">
+                <img :src="post.creator.picture" alt="" class="rounded-circle ms-2" height="50" width="50">
+              </router-link>
+            </div>
+            <div class="col-10 pe-1 pt-1 d-flex flex-column align-items-start">
+              <span><b>{{post.creator.name}}</b></span>
+              <span>{{ post.createdAt }}</span>
+            </div>
+            <div class="col-12 px-5 my-2">
+              <span>{{ post.body }}</span>
+            </div>
+            <div v-if="post.imgUrl" class="col-12 text-center g-0">
+              <img :src="post.imgUrl" alt="" class="bodyImg" onerror="this.src='src/assets/img/broken-image.png';">
+            </div>
+            <div class="col-12 text-end">
+              <i class="mdi mdi-arrow-up fs-4 me-1 like"></i>
+              <span class="fs-4 me-4">{{ post.likes.length }}</span>
+            </div>
+          </div>
+</template>
+
+
+<script>
+import { Post } from "../models/Post.js";
+
+export default {
+  props: {
+    post: {type: Post, required: true}
+  },
+  setup(){
+
+    return {
+
+    }
+  }
+}
+</script>
+
+
+<style lang="scss" scoped>
+
+</style>

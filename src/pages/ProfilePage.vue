@@ -8,8 +8,9 @@
 
 
 <script>
-import { onMounted } from "vue";
+import { onMounted, onUnmounted, computed } from "vue";
 import { useRoute } from "vue-router";
+import { AppState } from "../AppState.js";
 import { postsService } from "../services/PostsService.js";
 import { profilesService } from '../services/ProfilesService.js'
 import Pop from "../utils/Pop.js";
@@ -43,7 +44,10 @@ export default {
       profilesService.clearProfile()
       postsService.clearPosts()
     })
-    return {}
+    return {
+      profile: computed(() => AppState.profile),
+      posts: computed(() => AppState.posts)
+    }
   }
 }
 </script>

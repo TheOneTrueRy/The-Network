@@ -2,7 +2,7 @@
   <div class="d-flex align-items-center ps-2 my-grey bg-gradient h-100">
         <router-link :to="{ name: 'Home' }">
         <div class="" title="Return to Homepage">
-          <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/3600/3600934.png" height="64"/>
+          <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/3600/3600934.png" class="rounded-circle elevation-1" height="64"/>
           <span class="fs-3 ms-1 brand-text on-hover">ETWORK</span>
         </div>
       </router-link>

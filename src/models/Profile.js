@@ -10,5 +10,7 @@ export class Profile{
     this.linkedin = data.linkedin
     this.coverImg = data.coverImg
     this.resume = data.resume
+    this.graduated = data.graduated
+    this.class = data.class
   }
 }

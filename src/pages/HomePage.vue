@@ -23,31 +23,13 @@
     <div class="col-12 my-overflow">
       <div class="row">
         <div v-for="post in posts" class="col-10 offset-1 my-2 rounded border border-dark border-2 elevation-1 my-grey bg-gradient">
-          <div class="row">
-            <div class="col-1 pt-1 text-center">
-              <img :src="post.creator.picture" alt="" class="rounded-circle ms-2" height="50" width="50">
-            </div>
-            <div class="col-10 pe-1 pt-1 d-flex flex-column align-items-start">
-              <span><b>{{post.creator.name}}</b></span>
-              <span>{{ post.createdAt }}</span>
-            </div>
-            <div class="col-12 px-5 my-2">
-              <span>{{ post.body }}</span>
-            </div>
-            <div v-if="post.imgUrl" class="col-12 text-center g-0">
-              <img :src="post.imgUrl" alt="" class="bodyImg" onerror="this.src='src/assets/img/broken-image.png';">
-            </div>
-            <div class="col-12 text-end">
-              <i class="mdi mdi-arrow-up fs-4 me-1 like"></i>
-              <span class="fs-4 me-4">{{ post.likes.length }}</span>
-            </div>
-          </div>
+          <PostCard :post="post"/>
         </div>
       </div>
       <div class="row">
         <div class="col-12 my-2 d-flex align-items-center justify-content-around btn-col">
-          <button class="btn btn-outline-dark"><i class="mdi mdi-arrow-left"></i> Newer Pages</button>
-          <button class="btn btn-outline-dark">Older Pages <i class="mdi mdi-arrow-right"></i></button>
+          <button class="btn btn-outline-light" @click="changePage(newerPosts)" :disabled="!newerPosts"><i class="mdi mdi-arrow-left"></i> Newer Pages</button>
+          <button class="btn btn-outline-light" @click="changePage(olderPosts)" :disabled="!olderPosts">Older Pages <i class="mdi mdi-arrow-right"></i></button>
         </div>
       </div>
     </div>
@@ -90,13 +72,23 @@ export default {
       editable,
       posts: computed(() => AppState.posts),
       account: computed(() => AppState.account),
+      newerPosts: computed(() => AppState.newerPosts),
+      olderPosts: computed(() => AppState.olderPosts),
       async createPost(){
         try {
           await postsService.createPost(editable.value)
+          editable.value = {}
         } catch (error) {
           Pop.error(error, 'Creating Post')
         }
       },
+      async changePage(url){
+        try {
+          await postsService.changePage(url)
+        } catch (error) {
+          Pop.error(error, 'Changing Page')
+        }
+      }
     }
   }
 }
@@ -104,32 +96,8 @@ export default {
 
 <style scoped lang="scss">
 
-@keyframes rainbow{
-  0% {color: red}
-  15% {color: orange;}
-  30% {color: yellow;}
-  38% {color: rgb(187, 255, 0);}
-  45% {color: lime}
-  60% {color: blue}
-  75% {color: darkviolet}
-  90% {color: deeppink;}
-  100% {color: red;}
-}
-
 .btn-col{
   height: 6%;
-}
-
-.like{
-  transition: 0.5s;
-  cursor: pointer;
-}
-
-.like:hover{
-  animation-name: rainbow;
-  animation-iteration-count: infinite;
-  animation-duration: 5s;
-  transform: scale(1.1);
 }
 
 .post-area{
@@ -143,11 +111,6 @@ export default {
 
 .my-overflow::-webkit-scrollbar{
   display: none;
-}
-
-.bodyImg{
-  width: 100%;
-  height: 500px;
 }
 
 #postbody{
