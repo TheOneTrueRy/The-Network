@@ -70,10 +70,10 @@ a:hover {
 }
 
 .brand-text{
-  font-weight: bold;
+  font-weight: 1000;
   color: white;
-  -webkit-text-stroke: 1px black;
-  font-family: 'Fredoka One', cursive;
+  text-shadow: 3px 1px black;
+  font-family: 'Roboto Slab', serif;
   letter-spacing: 2px;
 }
 

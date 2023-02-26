@@ -1,11 +1,11 @@
 <template>
           <div class="row">
-            <div class="col-1 pt-1 text-center">
+            <div class="col-1 pt-3 text-center">
               <router-link :to="{name: 'Profile', params: {profileId: post.creatorId}}">
                 <img :src="post.creator.picture" alt="" class="rounded-circle ms-2" height="50" width="50" onerror="this.src='src/assets/img/broken-image.png';">
               </router-link>
             </div>
-            <div class="col-10 pe-1 pt-1 d-flex flex-column align-items-start">
+            <div class="col-10 pe-1 pt-3 d-flex flex-column align-items-start">
               <span><b>{{post.creator.name}}</b></span>
               <span>{{ post.createdAt }}</span>
             </div>
