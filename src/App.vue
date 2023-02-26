@@ -20,7 +20,7 @@
                 <span class="on-hover fs-4">Linkedin</span>
               </div>
             </a>
-            <a v-if="appState.account.resume" :href="appState.account.resume">
+            <a v-if="appState.account.resume" :href="appState.account.resume" target="_blank">
               <div class="text-center d-flex flex-column mt-3">
                 <i class="mdi mdi-note-text-outline fs-2"></i>
                 <span class="on-hover fs-4">Resume</span>

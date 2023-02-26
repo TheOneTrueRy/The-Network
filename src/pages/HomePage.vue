@@ -6,11 +6,11 @@
         <div class="col-3 pt-3 ps-4 d-flex flex-column">
           <img :src="account.picture" alt="" class="rounded-circle elevation-2" height="100" width="100">
         </div>
-        <div class="col-8">
+        <div class="col-9">
           <form @submit.prevent="createPost()">
-            <textarea v-model="editable.body" required name="postbody" id="postbody" rows="4" class="mt-2 border-2 border border-dark" placeholder="Create a post!" maxlength="1200"></textarea>
+            <textarea v-model="editable.body" required name="postbody" id="postbody" rows="4" class="mt-2 border-2 border border-dark rounded" placeholder="Create a post!" maxlength="1200"></textarea>
             <input v-model="editable.imgUrl" type="url" class="rounded py-1" placeholder="Got an IMG? Put er there!">
-            <button type="submit" id="postbutton" class="btn btn-outline-dark ms-5 py-1 like">Make a Post!</button>
+            <button type="submit" id="postbutton" class="btn btn-outline-dark ms-5 py-1 like">Post!</button>
           </form>
         </div>
       </div>
@@ -118,7 +118,7 @@ export default {
 }
 
 #postbody{
-  width: 90%;
+  width: 95%;
 }
 
 #postbutton{
