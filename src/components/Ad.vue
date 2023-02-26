@@ -46,6 +46,6 @@ export default {
   }
 
   .ads{
-    height: 50%;
+    height: 45.5vh;
   }
 </style>

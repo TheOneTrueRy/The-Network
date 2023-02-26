@@ -42,7 +42,9 @@
           <router-view/>
         </div>
         <div id="ads" class="col-2 g-0 d-flex flex-column">
-          <Ad/>
+          <marquee behavior="slide" direction="left">
+            <Ad/>
+          </marquee>
         </div>
       </div>
     </div>
