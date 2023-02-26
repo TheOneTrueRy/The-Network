@@ -17,7 +17,7 @@
             </div>
             <div class="col-12 d-flex align-items-center justify-content-between px-5">
               <div class="my-1">
-                <button type="button" v-if="post.creator.id == account.id" class="btn btn-outline-danger"><i class="mdi mdi-delete"></i></button>
+                <button type="button" v-if="post.creator.id == account.id" class="btn btn-outline-danger" @click="deletePost(post.id)"><i class="mdi mdi-delete"></i></button>
               </div>
               <div>
                 <i class="mdi mdi-arrow-up fs-4 me-1 like" @click="likePost(post.id)"></i>
@@ -49,6 +49,13 @@ export default {
           await postsService.likePost(postId)
         } catch (error) {
           Pop.error('Must log in to like posts!', 'Liking Post')
+        }
+      },
+      async deletePost(postId){
+        try {
+          await postsService.deletePost(postId)
+        } catch (error) {
+          Pop.error(error.message, 'Deleting Post')
         }
       }
     }

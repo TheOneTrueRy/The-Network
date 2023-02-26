@@ -51,6 +51,14 @@ class PostsService {
     AppState.olderPosts = res.data.older
   }
 
+  async deletePost(postId){
+    const res = await api.delete('api/posts/' + postId)
+    let i = AppState.posts.findIndex(p => p.id == postId)
+    if(i != -1){
+      AppState.posts.splice(i, 1)
+    }
+  }
+
   clearPosts(){
     AppState.posts = []
   }
