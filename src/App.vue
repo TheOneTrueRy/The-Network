@@ -41,8 +41,8 @@
         <div class="col-10 g-0 border-3 border-end border-dark main-body">
           <router-view/>
         </div>
-        <div class="col-2 g-0">
-
+        <div id="ads" class="col-2 g-0 d-flex flex-column">
+          <Ad/>
         </div>
       </div>
     </div>
@@ -54,6 +54,8 @@
 <script>
 import { computed } from 'vue'
 import { AppState } from './AppState'
+import Ad from "./components/Ad.vue"
+import Login from "./components/Login.vue"
 import Navbar from './components/Navbar.vue'
 import { AuthService } from "./services/AuthService.js"
 
@@ -66,7 +68,7 @@ export default {
       },
     }
   },
-  components: { Navbar }
+  components: { Navbar, Ad, Login }
 }
 </script>
 <style lang="scss">
@@ -90,5 +92,9 @@ a{
 
 a:hover{
   color: white;
+}
+
+#ads{
+  height: 91vh;
 }
 </style>

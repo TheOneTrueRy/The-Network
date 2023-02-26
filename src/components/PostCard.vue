@@ -15,9 +15,14 @@
             <div v-if="post.imgUrl" class="col-12 text-center g-0">
               <img :src="post.imgUrl" alt="" class="img-fluid bodyImg" onerror="this.src='src/assets/img/broken-image.png';">
             </div>
-            <div class="col-12 text-end">
-              <i class="mdi mdi-arrow-up fs-4 me-1 like" @click="likePost(post.id)"></i>
-              <span class="fs-4 me-4">{{ post.likes.length }}</span>
+            <div class="col-12 d-flex align-items-center justify-content-between">
+              <div class="my-1">
+                <button type="button" v-if="post.creator.id == account.id" class="btn btn-outline-danger"><i class="mdi mdi-delete"></i></button>
+              </div>
+              <div>
+                <i class="mdi mdi-arrow-up fs-4 me-1 like" @click="likePost(post.id)"></i>
+                <span class="fs-4 me-4">{{ post.likes.length }}</span>
+              </div>
             </div>
           </div>
 </template>
@@ -36,6 +41,7 @@ export default {
   setup(){
 
     return {
+      account: computed(() => AppState.account),
       posts: computed(() => AppState.posts),
       async likePost(postId){
         await postsService.likePost(postId)
