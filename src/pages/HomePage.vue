@@ -21,6 +21,7 @@
       </div>
     </div>
     <div class="col-12 my-overflow">
+      <div id="topofposts"></div>
       <div class="row">
         <div v-for="post in posts" class="col-10 offset-1 my-2 rounded border border-dark border-2 elevation-1 my-grey bg-gradient card-glow">
           <PostCard :post="post"/>
@@ -89,6 +90,7 @@ export default {
           }else{
             await postsService.changePage(url)
           }
+          document.getElementById('topofposts').scrollIntoView()
         } catch (error) {
           Pop.error(error, 'Changing Page')
         }
