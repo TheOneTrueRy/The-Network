@@ -2,7 +2,7 @@
           <div class="row">
             <div class="col-1 pt-1 text-center">
               <router-link :to="{name: 'Profile', params: {profileId: post.creatorId}}">
-                <img :src="post.creator.picture" alt="" class="rounded-circle ms-2" height="50" width="50">
+                <img :src="post.creator.picture" alt="" class="rounded-circle ms-2" height="50" width="50" onerror="this.src='src/assets/img/broken-image.png';">
               </router-link>
             </div>
             <div class="col-10 pe-1 pt-1 d-flex flex-column align-items-start">
@@ -13,10 +13,10 @@
               <span>{{ post.body }}</span>
             </div>
             <div v-if="post.imgUrl" class="col-12 text-center g-0">
-              <img :src="post.imgUrl" alt="" class="bodyImg" onerror="this.src='src/assets/img/broken-image.png';">
+              <img :src="post.imgUrl" alt="" class="img-fluid bodyImg" onerror="this.src='src/assets/img/broken-image.png';">
             </div>
             <div class="col-12 text-end">
-              <i class="mdi mdi-arrow-up fs-4 me-1 like"></i>
+              <i class="mdi mdi-arrow-up fs-4 me-1 like" @click="likePost(post.id)"></i>
               <span class="fs-4 me-4">{{ post.likes.length }}</span>
             </div>
           </div>
@@ -24,7 +24,10 @@
 
 
 <script>
+import { computed } from "vue";
+import { AppState } from "../AppState.js";
 import { Post } from "../models/Post.js";
+import { postsService } from "../services/PostsService.js";
 
 export default {
   props: {
@@ -33,7 +36,10 @@ export default {
   setup(){
 
     return {
-
+      posts: computed(() => AppState.posts),
+      async likePost(postId){
+        await postsService.likePost(postId)
+      }
     }
   }
 }

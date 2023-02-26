@@ -31,6 +31,25 @@ class PostsService {
     AppState.olderPosts = res.data.older
   }
 
+  async changePageWithQuery(url){
+    const res = await api.get(url, {query: AppState.query})
+    AppState.posts = res.data.posts.map(p => new Post(p))
+    AppState.newerPosts = res.data.newer
+    AppState.olderPosts = res.data.older
+  }
+
+  async likePost(postId){
+    const res = await api.post(`api/posts/${postId}/like`)
+  }
+
+  async search(searchData){
+    const res = await api.get('api/posts', {params: searchData})
+    AppState.query = searchData.query
+    AppState.posts = res.data.posts.map(p => new Post(p))
+    AppState.newerPosts = res.data.newer
+    AppState.olderPosts = res.data.older
+  }
+
   clearPosts(){
     AppState.posts = []
   }

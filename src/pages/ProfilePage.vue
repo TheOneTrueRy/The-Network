@@ -22,7 +22,7 @@
               </a>
             </div>
           </div>
-          <div class="col-12 g-0 px-3">
+          <div v-if="profile.class" class="col-12 g-0 px-3">
             <span class="fs-5">{{ profile.class }}</span>
             <span v-if="profile.graduated" class=""> - <i class="">Graduated</i></span>
           </div>

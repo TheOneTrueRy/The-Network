@@ -16,4 +16,6 @@ export const AppState = reactive({
 
   olderPosts: null,
   newerPosts: null,
+
+  query: null,
 })

@@ -15,19 +15,15 @@
         <div class="dropdown-menu dropdown-menu-lg-left p-0" aria-labelledby="authDropdown">
           <div class="list-group">
             <router-link :to="{ name: 'Account' }">
-              <div class="list-group-item dropdown-item list-group-item-action">
+              <div class="list-group-item dropdown-item bg-dark bg-gradient list-group-item-action text-light border-1 border-dark">
                 Edit Account
               </div>
             </router-link>
-            <!-- <router-link :to="{ name: 'Profile' }">
-              <div class="list-group-item dropdown-item list-group-item-action">
+            <router-link v-if="account.id" :to="{ name: 'Profile', params: {profileId: account.id || user.id} }">
+              <div class="list-group-item dropdown-item list-group-item-action bg-dark bg-gradient text-light border-1 border-dark">
                 My Profile
               </div>
-            </router-link> -->
-            <div class="list-group-item dropdown-item list-group-item-action text-danger selectable" @click="logout">
-              <i class="mdi mdi-logout"></i>
-              logout
-            </div>
+            </router-link>
           </div>
         </div>
       </div>
