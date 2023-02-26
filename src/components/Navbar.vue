@@ -48,7 +48,7 @@ export default {
 .brand-text{
   font-weight: 1000;
   color: white;
-  text-shadow: 3px 1px black;
+  text-shadow: 4px 3px black;
   font-family: 'Roboto Slab', serif;
   letter-spacing: 2px;
 }
