@@ -43,6 +43,9 @@ class PostsService {
 
   async likePost(postId){
     const res = await api.post(`api/posts/${postId}/like`)
+    const response = await api.get('api/posts/' + postId)
+    let i = AppState.posts.findIndex(p => p.id == postId)
+    AppState.posts.splice(i, 1, new Post(response.data))
   }
 
   async search(searchData){
