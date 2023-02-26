@@ -19,7 +19,7 @@
                 Edit Account
               </div>
             </router-link>
-            <router-link v-if="account.id" :to="{ name: 'Profile', params: {profileId: account.id || user.id} }">
+            <router-link v-if="account.id" :to="{ name: 'Profile', params: {profileId: account.id || user.id} }" @click="setProfileRight()">
               <div class="list-group-item dropdown-item list-group-item-action bg-dark bg-gradient text-light border-1 border-dark">
                 My Profile
               </div>
@@ -38,6 +38,8 @@
 import { computed } from 'vue'
 import { AppState } from '../AppState'
 import { AuthService } from '../services/AuthService'
+import { profilesService } from "../services/ProfilesService.js"
+import Pop from "../utils/Pop.js"
 export default {
   setup() {
     return {
@@ -48,6 +50,13 @@ export default {
       },
       async logout() {
         AuthService.logout({ returnTo: window.location.origin })
+      },
+      async setProfileRight(){
+        try {
+          await profilesService.getProfileById(this.account.id)
+        } catch (error) {
+          Pop.error(error, 'Setting Profile Right')
+        }
       }
     }
   }

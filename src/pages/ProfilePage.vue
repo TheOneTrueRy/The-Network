@@ -29,7 +29,9 @@
           <div class="col-12 g-0 px-3">
             <span class="fs-4"><b>{{ profile.name }}</b></span>
           </div>
-          <div class="col-12 g-0 mb-3 px-3"></div>
+          <div class="col-12 g-0 mb-3 px-3">
+            
+          </div>
         </div>
       </div>
     </div>

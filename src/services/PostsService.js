@@ -22,6 +22,7 @@ class PostsService {
   async getPostsByQuery(query){
     const res = await api.get('api/posts/', {params: query})
     AppState.posts = res.data.posts.map(p => new Post(p))
+    logger.log(AppState.posts)
   }
 
   async changePage(url){

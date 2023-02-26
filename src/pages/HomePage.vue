@@ -100,34 +100,4 @@ export default {
 
 <style scoped lang="scss">
 
-.btn-col{
-  height: 6%;
-}
-
-.post-area{
-  height: 20%;
-}
-
-.my-overflow{
-  height: 80%;
-  overflow-y: scroll;
-}
-
-.my-overflow::-webkit-scrollbar{
-  display: none;
-}
-
-#postbody{
-  width: 95%;
-}
-
-#postbutton{
-  height: 34px;
-  padding: 4px 6px;
-  margin-bottom: 3px;
-}
-
-#WHAT{
-  height: 99%;
-}
 </style>
