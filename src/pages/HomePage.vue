@@ -112,7 +112,7 @@ export default {
 .postbutton{
   transition: 0.5s;
   color: white;
-  box-shadow: 0px 0px 4px rgb(146, 53, 146);
+  box-shadow: 0px 0px 5px rgb(146, 53, 146);
 }
 
 .postbutton:hover{
