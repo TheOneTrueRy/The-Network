@@ -34,7 +34,7 @@
           </div>
         </div>
       </div>
-      <div v-for="post in posts" class="col-10 offset-1 my-2 rounded border border-dark border-2 elevation-1 my-grey bg-gradient">
+      <div v-for="post in posts" class="col-10 offset-1 my-2 rounded border border-dark border-2 elevation-1 my-grey bg-gradient card-glow">
           <PostCard :post="post"/>
       </div>
     </div>
@@ -113,5 +113,15 @@ export default {
 
 #pfp{
   border: 2px solid black;
+}
+
+.card-glow{
+  box-shadow: 1px 0.5px 7px rgb(187, 112, 187);
+  transition: 0.5s;
+}
+
+.card-glow:hover{
+  box-shadow: 1px 0.5px 11px rgb(187, 112, 187);
+  transform: scale(1.01);
 }
 </style>
