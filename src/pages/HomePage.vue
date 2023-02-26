@@ -1,7 +1,7 @@
 <template>
 <div class="container-fluid h-100">
   <div id="WHAT" class="row">
-    <div class="col-6 offset-3 post-area mt-2 border rounded border-dark border-2 elevation-2 my-grey bg-gradient">
+    <div class="col-6 offset-3 post-area my-2 border rounded border-dark border-2 elevation-2 my-grey bg-gradient">
       <div class="row" v-if="account.id">
         <div class="col-3 pt-3 ps-4 d-flex flex-column">
           <img :src="account.picture" alt="" class="rounded-circle elevation-2" height="100" width="100">
@@ -22,7 +22,7 @@
     </div>
     <div class="col-12 my-overflow">
       <div class="row">
-        <div v-for="post in posts" class="col-10 offset-1 my-2 rounded border border-dark border-2 elevation-1 my-grey bg-gradient">
+        <div v-for="post in posts" class="col-10 offset-1 my-2 rounded border border-dark border-2 elevation-1 my-grey bg-gradient card-glow">
           <PostCard :post="post"/>
         </div>
       </div>
@@ -99,5 +99,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.card-glow{
+  box-shadow: 1px 0.5px 7px rgb(187, 112, 187);
+  transition: 0.5s;
+}
 
+.card-glow:hover{
+  box-shadow: 1px 0.5px 11px rgb(187, 112, 187);
+  transform: scale(1.01);
+}
 </style>
