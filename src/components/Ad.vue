@@ -1,11 +1,11 @@
 <template>
   <div class="ads">
-    <a href="https://www.tiktok.com/@theonetruery">
+    <a href="https://www.tiktok.com/@theonetruery" target="_blank">
       <img :src="ads[0].tall" alt="" class="elevation-1 ad">
     </a>
   </div>
   <div class="ads">
-    <a href="https://www.youtube.com/channel/UCf3zHtMcYZfqyn4IQ7k0kAw">
+    <a href="https://www.youtube.com/channel/UCf3zHtMcYZfqyn4IQ7k0kAw" target="_blank">
       <img :src="ads[1].tall" alt="" class="elevation-1 ad">
     </a>
   </div>
