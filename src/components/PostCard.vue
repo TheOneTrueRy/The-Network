@@ -33,6 +33,7 @@ import { computed } from "vue";
 import { AppState } from "../AppState.js";
 import { Post } from "../models/Post.js";
 import { postsService } from "../services/PostsService.js";
+import Pop from "../utils/Pop.js";
 
 export default {
   props: {
@@ -44,7 +45,11 @@ export default {
       account: computed(() => AppState.account),
       posts: computed(() => AppState.posts),
       async likePost(postId){
-        await postsService.likePost(postId)
+        try {
+          await postsService.likePost(postId)
+        } catch (error) {
+          Pop.error('Must log in to like posts!', 'Liking Post')
+        }
       }
     }
   }

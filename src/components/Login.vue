@@ -5,10 +5,10 @@
       Login
     </button>
     <div v-else>
-      <div class="dropdown dropstart my-2 my-lg-0">
-        <div type="button" class="bg-dark border-0 selectable no-select rounded-circle elevation-2" data-bs-toggle="dropdown"
+      <div class="dropdown dropstart my-2 my-lg-0 d-flex justify-content-center">
+        <div type="button" class="bg-dark border-0 selectable no-select rounded-circle elevation-2 pfp" data-bs-toggle="dropdown"
           aria-expanded="false">
-          <div v-if="account.picture || user.picture">
+          <div v-if="account.picture || user.picture" class="">
             <img :src="account.picture || user.picture" alt="account photo" height="150" width="150" class="rounded-circle" />
           </div>
         </div>
@@ -60,5 +60,10 @@ export default {
   color: white;
   -webkit-text-stroke: 1px black;
   letter-spacing: 2.5px;
+}
+
+.pfp{
+  height: 150px;
+  width: 150px;
 }
 </style>
