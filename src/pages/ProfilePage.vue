@@ -1,7 +1,7 @@
 <template>
-  <div v-if="profile" class="container-fluid">
+  <div v-if="profile" class="container-fluid my-overflow">
     <div class="row px-5 py-2">
-      <div class="col-12 elevation-2 my-grey">
+      <div class="col-10 offset-1 elevation-2 my-grey">
         <div class="row">
           <div class="col-12 g-0">
             <img :src="profile.coverImg" alt="" class="coverImg">
@@ -103,8 +103,9 @@ export default {
 
 .coverImg{
   width: 100%;
-  height: 30vh;
+  height: 25vh;
   overflow-y: hidden;
+  object-fit: cover;
 }
 
 #pfp{
