@@ -38,6 +38,12 @@
           <PostCard :post="post"/>
       </div>
     </div>
+    <div class="row">
+        <div class="col-12 my-2 d-flex align-items-center justify-content-around btn-col">
+          <button class="btn btn-outline-light" @click="changePage(newerPosts)" :disabled="!newerPosts"><i class="mdi mdi-arrow-left"></i> Newer Pages</button>
+          <button class="btn btn-outline-light" @click="changePage(olderPosts)" :disabled="!olderPosts">Older Pages <i class="mdi mdi-arrow-right"></i></button>
+        </div>
+      </div>
   </div>
 </template>
 
@@ -82,7 +88,20 @@ export default {
     })
     return {
       profile: computed(() => AppState.profile),
-      posts: computed(() => AppState.posts)
+      posts: computed(() => AppState.posts),
+      newerPosts: computed(() => AppState.newerPosts),
+      olderPosts: computed(() => AppState.olderPosts),
+      async changePage(url){
+        try {
+          if(AppState.query){
+            await postsService.changePageWithQuery(url)
+          }else{
+            await postsService.changePage(url)
+          }
+        } catch (error) {
+          Pop.error(error, 'Changing Page')
+        }
+      }
     }
   }
 }
