@@ -10,7 +10,7 @@
           <form @submit.prevent="createPost()">
             <textarea v-model="editable.body" required name="postbody" id="postbody" rows="4" class="mt-2 border-2 border border-dark rounded" placeholder="Create a post!" maxlength="1200"></textarea>
             <input v-model="editable.imgUrl" type="url" class="rounded py-1" placeholder="Got an IMG? Put er there!">
-            <button type="submit" id="postbutton" class="btn btn-outline-dark ms-5 py-1 like">Post!</button>
+            <button type="submit" id="postbutton" class="btn ms-5 py-1 rounded postbutton">Post!</button>
           </form>
         </div>
       </div>
@@ -107,5 +107,19 @@ export default {
 .card-glow:hover{
   box-shadow: 1px 0.5px 11px rgb(187, 112, 187);
   transform: scale(1.01);
+}
+
+.postbutton{
+  transition: 0.5s;
+  color: white;
+  box-shadow: 0px 0px 4px rgb(146, 53, 146);
+}
+
+.postbutton:hover{
+  transform: scale(1.1);
+  animation-name: rainbow;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  background-color: rgba(0, 0, 0, 0.37);
 }
 </style>
