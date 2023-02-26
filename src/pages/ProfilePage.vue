@@ -1,7 +1,7 @@
 <template>
-  <div v-if="profile" class="container-fluid my-overflow">
+  <div v-if="profile" class="container-fluid my-overflow-profile">
     <div class="row px-5 py-2">
-      <div class="col-10 offset-1 elevation-2 my-grey">
+      <div class="col-12 elevation-2 my-grey mb-3">
         <div class="row">
           <div class="col-12 g-0">
             <img :src="profile.coverImg" alt="" class="coverImg">
@@ -29,10 +29,13 @@
           <div class="col-12 g-0 px-3">
             <span class="fs-4"><b>{{ profile.name }}</b></span>
           </div>
-          <div class="col-12 g-0 mb-3 px-3">
-            
+          <div class="col-12 g-0 mb-3 px-3 mt-3">
+            <span><i>{{ profile.bio }}</i></span>
           </div>
         </div>
+      </div>
+      <div v-for="post in posts" class="col-10 offset-1 my-2 rounded border border-dark border-2 elevation-1 my-grey bg-gradient">
+          <PostCard :post="post"/>
       </div>
     </div>
   </div>

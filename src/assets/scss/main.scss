@@ -99,6 +99,16 @@ form:invalid button[type="submit"] {
   display: none;
 }
 
+.my-overflow-profile{
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.my-overflow-profile::-webkit-scrollbar{
+  display: none;
+}
+
+
 #postbody{
   width: 95%;
 }
