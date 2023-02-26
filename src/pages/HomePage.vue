@@ -8,7 +8,7 @@
         </div>
         <div class="col-8">
           <form @submit.prevent="createPost()">
-            <textarea v-model="editable.body" required name="postbody" id="postbody" rows="4" class="mt-3 border-2 border border-dark" placeholder="Create a post!" maxlength="1200"></textarea>
+            <textarea v-model="editable.body" required name="postbody" id="postbody" rows="4" class="mt-2 border-2 border border-dark" placeholder="Create a post!" maxlength="1200"></textarea>
             <input v-model="editable.imgUrl" type="url" class="rounded py-1" placeholder="Got an IMG? Put er there!">
             <button type="submit" id="postbutton" class="btn btn-outline-dark ms-5 py-1 like">Post!</button>
           </form>
