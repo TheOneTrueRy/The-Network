@@ -54,7 +54,11 @@ export default {
       },
       async deletePost(postId){
         try {
-          await postsService.deletePost(postId)
+          if (await Pop.confirm('Are you sure you want to delete your post?')) {
+            await postsService.deletePost(postId)
+          }else{
+            return
+          }
         } catch (error) {
           Pop.error(error.message, 'Deleting Post')
         }

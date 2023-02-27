@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js"
 import { Post } from "../models/Post.js"
+import { router } from "../router.js"
 import { logger } from "../utils/Logger.js"
 import { api } from "./AxiosService.js"
 
@@ -52,6 +53,7 @@ class PostsService {
 
   async search(searchData){
     const res = await api.get('api/posts', {params: searchData})
+    router.push({name: 'Search'})
     AppState.query = searchData.query
     AppState.posts = res.data.posts.map(p => new Post(p))
     AppState.newerPosts = res.data.newer

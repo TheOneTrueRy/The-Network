@@ -19,6 +19,7 @@
 
 <script>
 import { ref } from "vue";
+import { router } from "../router.js";
 import { postsService } from "../services/PostsService.js";
 import Pop from "../utils/Pop.js";
 export default {
