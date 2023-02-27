@@ -2,11 +2,11 @@
 <div class="container-fluid bg-dark bg-gradient">
   <div class="row vh100">
     <div class="col-2 g-0 d-flex align-items-center justify-content-center border-end border-dark border-3 my-grey bg-gradient">
-      <div class="row">
-        <div class="col-12 d-flex align-items-center justify-content-center ">
+      <div class="row h-100">
+        <div class="col-12 d-flex align-items-center justify-content-center top pt-2">
           <Login title="Access Your Account Pages"/>
         </div>
-        <div class="col-12 third pt-4">
+        <div class="col-12 middle pt-1">
           <div v-if="appState.account.id">
             <a v-if="appState.account.github" :href="appState.account.github" target="_blank">
             <div class="text-center d-flex flex-column">
@@ -15,7 +15,7 @@
               </div>
             </a>
             <a v-if="appState.account.linkedin" :href="appState.account.linkedin" target="_blank">
-            <div class="text-center d-flex flex-column mt-3">
+              <div class="text-center d-flex flex-column mt-3">
                 <i class="mdi mdi-linkedin me-2 fs-2"></i>
                 <span class="on-hover fs-4">Linkedin</span>
               </div>
@@ -28,8 +28,8 @@
             </a>
           </div>
         </div>
-        <div class="col-12 third text-center">
-          <button v-if="appState.account.id" class="btn btn-outline-danger mt-5" @click="logout">Logout <i class="mdi mdi-logout"></i></button>
+        <div class="col-12 bottom d-flex justify-content-center align-items-start">
+          <button v-if="appState.account.id" class="btn btn-outline-danger" @click="logout">Logout <i class="mdi mdi-logout"></i></button>
         </div>
       </div>
     </div>
@@ -76,8 +76,16 @@ export default {
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
-.third{
-  height: 33.3vh;
+.top{
+  height: 30vh;
+}
+
+.middle{
+  height: 50vh;
+}
+
+.bottom{
+  height: 10vh;
 }
 
 .header-stuff{
