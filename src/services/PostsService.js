@@ -17,6 +17,8 @@ class PostsService {
     const res = await api.post('api/posts', postData)
     logger.log(res.data)
     AppState.posts.unshift(new Post(res.data))
+    this.getAllPosts()
+    document.getElementById('topofposts').scrollIntoView()
   }
 
   async getPostsByQuery(query){

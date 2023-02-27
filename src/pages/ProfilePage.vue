@@ -98,6 +98,7 @@ export default {
           }else{
             await postsService.changePage(url)
           }
+          document.getElementById('topofposts').scrollIntoView()
         } catch (error) {
           Pop.error(error, 'Changing Page')
         }

@@ -124,4 +124,8 @@ export default {
   animation-iteration-count: infinite;
   background-color: rgba(0, 0, 0, 0.37);
 }
+
+textarea{
+  resize: none;
+}
 </style>
