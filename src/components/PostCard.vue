@@ -20,7 +20,8 @@
                 <button type="button" v-if="post.creator.id == account.id" class="btn btn-outline-danger" @click="deletePost(post.id)"><i class="mdi mdi-delete"></i></button>
               </div>
               <div>
-                <i class="mdi mdi-arrow-up fs-4 me-1 like" @click="likePost(post.id)"></i>
+                <i v-if="post.likeIds.includes(account.id)" class="mdi mdi-arrow-down fs-4 me-1 like" @click="likePost(post.id)"></i>
+                <i v-else class="mdi mdi-arrow-up fs-4 me-1 like" @click="likePost(post.id)"></i>
                 <span class="fs-4">{{ post.likes.length }}</span>
               </div>
             </div>
