@@ -34,6 +34,7 @@
           </div>
         </div>
       </div>
+      <div id="topofposts"></div>
       <div v-for="post in posts" class="col-10 offset-1 my-2 rounded border border-dark border-2 elevation-1 my-grey bg-gradient card-glow">
           <PostCard :post="post"/>
       </div>
