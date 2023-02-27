@@ -38,6 +38,7 @@
 import { computed } from 'vue'
 import { AppState } from '../AppState'
 import { AuthService } from '../services/AuthService'
+import { postsService } from "../services/PostsService.js"
 import { profilesService } from "../services/ProfilesService.js"
 import Pop from "../utils/Pop.js"
 export default {
@@ -54,6 +55,7 @@ export default {
       async setProfileRight(){
         try {
           await profilesService.getProfileById(this.account.id)
+          await postsService.getPostsByQuery({creatorId: this.account.id})
         } catch (error) {
           Pop.error(error, 'Setting Profile Right')
         }
