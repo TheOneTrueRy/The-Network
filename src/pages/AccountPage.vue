@@ -1,10 +1,11 @@
 <template>
-  <div id="coverImg" class="about text-center pb-2">
-    <h1 class="my-shadow">Welcome, {{ account.name }}.</h1>
+  <div class="my-overflow-form">
+    <div id="coverImg" class="about text-center pb-2">
+      <h1 class="my-shadow">Welcome, {{ account.name }}.</h1>
     <img class="rounded-circle" :src="account.picture" alt="" height="200" width="200"/>
   </div>
   <div class="d-flex justify-content-center">
-    <form @submit.prevent="editAccount()">
+    <form @submit.prevent="editAccount()" class="">
       <label for="name" class="mt-2">Name</label>
       <input required v-model="editable.name" class="form-control  mb-2" type="text" placeholder="Name..." id="name">
       <label for="picture">Profile Picture</label>
@@ -24,6 +25,7 @@
       <button type="submit" class="btn btn-outline-light w-100 mt-1">Save Changes</button>
     </form>
   </div>
+</div>
 </template>
 
 <script>
@@ -68,5 +70,14 @@ export default {
 
 #coverImg{
   background-size: cover;
+}
+
+.my-overflow-form{
+  overflow-y: scroll;
+  height: 91vh;
+}
+
+.my-overflow-form::-webkit-scrollbar{
+  display: none;
 }
 </style>
