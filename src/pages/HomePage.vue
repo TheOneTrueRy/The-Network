@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { onMounted, computed, ref } from "vue";
+import { onMounted, computed, ref, onUnmounted } from "vue";
 import { AppState } from "../AppState.js";
 import { postsService } from '../services/PostsService.js';
 import { adsService } from '../services/AdsService.js';
@@ -67,6 +67,10 @@ export default {
     onMounted(() => {
       getAllPosts()
       getAds()
+    })
+
+    onUnmounted(() => {
+      postsService.clearPosts()
     })
 
     return {

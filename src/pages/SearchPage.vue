@@ -11,12 +11,17 @@
 
 
 <script>
-import { computed } from "vue";
+import { computed, onUnmounted } from "vue";
 import { AppState } from "../AppState.js";
+import { postsService } from "../services/PostsService.js";
 import PostCard from "../components/PostCard.vue";
 
 export default {
     setup() {
+
+      onUnmounted(() => {
+        postsService.clearPosts()
+      })
 
         return {
           posts: computed(() => AppState.posts)
