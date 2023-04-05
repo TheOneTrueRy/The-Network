@@ -58,10 +58,7 @@ import { AuthService } from "./services/AuthService.js"
 export default {
   setup() {
     return {
-      appState: computed(() => AppState),
-      async logout() {
-          AuthService.logout({ returnTo: window.location.origin })
-      },
+      appState: computed(() => AppState)
     }
   },
   components: { Navbar, Ad, Login }
