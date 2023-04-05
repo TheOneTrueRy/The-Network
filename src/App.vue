@@ -4,32 +4,26 @@
     <div class="col-2 g-0 d-flex align-items-center justify-content-center border-end border-dark border-3 my-grey bg-gradient">
       <div class="row h-100">
         <div class="col-12 d-flex align-items-center justify-content-center top pt-2">
-          <Login title="Access Your Account Pages"/>
+          <img src="https://cdn.ebaumsworld.com/mediaFiles/picture/718392/84890860.jpg" alt="account photo" height="150" width="150" class="rounded-circle border border-2 border-dark elevation-1" />
+        </div>
+        <div class="col-12 text-center">
+          <span class="fs-3">Mr. Placeholder</span>
         </div>
         <div class="col-12 middle pt-1">
-          <div v-if="appState.account.id">
-            <a v-if="appState.account.github" :href="appState.account.github" target="_blank">
+          <div>
             <div class="text-center d-flex flex-column">
                 <i class="mdi mdi-github me-2 fs-2"></i>
                 <span class="on-hover fs-4">GitHub</span>
               </div>
-            </a>
-            <a v-if="appState.account.linkedin" :href="appState.account.linkedin" target="_blank">
               <div class="text-center d-flex flex-column mt-3">
                 <i class="mdi mdi-linkedin me-2 fs-2"></i>
                 <span class="on-hover fs-4">Linkedin</span>
               </div>
-            </a>
-            <a v-if="appState.account.resume" :href="appState.account.resume" target="_blank">
               <div class="text-center d-flex flex-column mt-3">
                 <i class="mdi mdi-note-text-outline fs-2"></i>
                 <span class="on-hover fs-4">Resume</span>
               </div>
-            </a>
           </div>
-        </div>
-        <div class="col-12 bottom d-flex justify-content-center align-items-start">
-          <button v-if="appState.account.id" class="btn btn-outline-danger" @click="logout">Logout <i class="mdi mdi-logout"></i></button>
         </div>
       </div>
     </div>

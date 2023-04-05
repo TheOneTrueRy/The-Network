@@ -9,7 +9,7 @@
     <div>
       <form class="flex-row d-flex" @submit.prevent="search()">
         <input v-model="editable.query" type="text" class="me-1 form-control" placeholder="Search...">
-        <button class="btn btn-outline-dark me-4">
+        <button class="btn btn-outline-light me-4">
           <i class="mdi mdi-magnify"></i>
         </button>
       </form>

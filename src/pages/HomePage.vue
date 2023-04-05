@@ -15,8 +15,8 @@
         </div>
       </div>
       <div class="row h-100" v-else>
-        <div class="col-12 d-flex justify-content-center align-items-center">
-          <i><h1>Log-in to post!</h1></i>
+        <div class="col-12 d-flex justify-content-center align-items-center text-center">
+          <i><span class="fs-4">The live version of this site using BCW's API does not support logging in or posting, sorry!</span></i>
         </div>
       </div>
     </div>
